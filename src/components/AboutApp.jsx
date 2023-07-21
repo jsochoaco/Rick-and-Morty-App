@@ -1,6 +1,6 @@
 import style from "./aboutapp.module.css"
 import foto from "../Imagenes/AppAbout.png"
-
+//Funcon about me
 const AboutMe = () => {
     return (
         <div className={style.contenedor}>
