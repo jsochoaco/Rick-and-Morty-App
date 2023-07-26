@@ -1,0 +1,49 @@
+.barrasuperior {
+    display: inline;
+    grid-row: auto;
+    align-items: center;
+    justify-content: center;
+    width: auto; /* Cambiar el ancho */
+    height: auto; /* Cambiar la altura */
+    max-width: 100%;
+    /* background: linear-gradient(to right, #6e5264, #13132d);; Cambiar el color de fondo */
+    color: #fff; /* Cambiar el color del texto */
+    font-size: 16px; /* Cambiar el tamaño de fuente */
+    padding: 5px;/* Cambiar el relleno interno */
+    /* margin: 5px; Cambiar los márgenes */
+    border-radius: 5px; /* Cambiar el radio de borde */
+ }
+ 
+ .barrasuperior input {
+    background-color:#0a0d20;
+    font-size: 20px;
+    color: white;
+    width: auto;
+    height: 40px;
+    font-weight: bolder;
+    text-align: center;
+    max-width: 70%;
+    border:3px solid #9fff02; 
+ }
+ .barrasuperior input::placeholder {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color:white;
+   font-style: italic;
+   font-size: medium;
+   opacity: 0.2;
+   font-weight: lighter;
+}
+
+ 
+ .barrasuperior button {
+   background-color: #0a0d20 ;
+   color: white;
+   box-shadow: 0 0 10px 5px #9fff02;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-size: 20px;
+   font-weight: lighter;
+   border: none;
+   border-radius: 5%;
+   width: auto;
+   height: 40px;
+ }

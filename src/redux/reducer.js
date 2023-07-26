@@ -11,7 +11,7 @@ export const reducer = (state=initialState, action) => {
         case ADD_FAVORITES:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites,action.payload] 
+                myFavorites: [...state.myFavorites , action.payload] 
             }
         
         case DELETE_FAVORITES:

@@ -1,0 +1,40 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 100px;
+}
+.datos {
+    background-color: #0b0c22;
+    font-size: 28px;
+    width: 25%;
+    border-radius: 5%;
+    text-align: center;
+    box-shadow: 0 0 10px 5px #9fff02;
+
+    .titulo {
+        color: #9fff02;
+    }
+    .info {
+        color: white;
+    }
+
+
+}
+
+.divimag {
+    border-radius: 50%;
+    width: 150%;
+    box-shadow: 0 0 10px 5px #9fff02;;
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+.divimag:hover{
+        transform: scale3d(1.2, 1.2, 0.3);
+            -webkit-transform: scale3d(1.2, 1.2, 0.3);
+            -moz-transform: scale3d(1.2, 1.2, 0.3);
+}

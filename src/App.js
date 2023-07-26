@@ -1,15 +1,16 @@
 //Importaciones de información y archivos 
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from "./components/Nav"
+import Cards from './components/Cards/Cards';
+import Nav from "./components/NavBar/Nav"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Routes, Route, useNavigate} from "react-router-dom"
-import AboutMe from "./components/AboutMe"
-import AboutApp from "./components/AboutApp"
-import CardDetails from "./components/CardDetails"
-import Error from './components/Error';
-import Form from './components/Form';
+import AboutMe from "./components/AboutMe/AboutMe"
+import AboutApp from "./components/AboutApp/AboutApp"
+import CardDetails from "./components/Details/CardDetails"
+import Error from './components/Error/Error';
+import Form from './components/Form/Form';
+import Favorites from "./components/Favorites/Favorites"
 
 function App() {
    // Función buscar info de carta por ID
@@ -78,6 +79,9 @@ function App() {
             <Route
             path='*'
             element={<Error/>}/>
+            <Route 
+            path='/favorites'
+            element={<Favorites />}/>
          </Routes>
       </div>
    );
