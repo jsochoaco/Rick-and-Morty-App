@@ -11,8 +11,10 @@ import CardDetails from "./components/Details/CardDetails"
 import Error from './components/Error/Error';
 import Form from './components/Form/Form';
 import Favorites from "./components/Favorites/Favorites"
+import { connect } from 'react-redux';
+import { deleteFavorites } from './redux/actions';
 
-function App() {
+function App(props) {
    // Función buscar info de carta por ID
    const [characters,setCharacters] = useState([]);
    function onSearch(id) {
@@ -35,10 +37,13 @@ function App() {
       });
    };
    // Función cierre de carta
+
    function onClose(id) {
       var idnum = parseInt(id)
       const update = characters.filter((object => object.id !== idnum))
       setCharacters(update)
+      props.deleteFavorite(idnum)
+
    }
    //Login 
    const navigate = useNavigate();
@@ -87,8 +92,21 @@ function App() {
    );
 }
 
-export default App;
 
+const mapStateToProps = (state) => {
+   return {
+      myFavorites: state.myFavorites
+   }
+}
+
+const mapDispatchToProps = (dispatch) => {
+   return {
+      addFavorite: (character) => dispatch(addFavorites(character)),
+      deleteFavorite: (id) => dispatch(deleteFavorites(id)),
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 // Codigo obsoleto/utilizado no necesario 
 // import Card from './components/Card.jsx';

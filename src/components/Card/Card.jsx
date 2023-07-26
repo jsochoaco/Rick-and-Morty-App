@@ -29,7 +29,6 @@ function Card({ id, name, species, gender, image, onClose, deleteFavorite, addFa
       });
    }, [myFavorites,id]);
 
-   console.log(myFavorites)
    
    return (
       <div className={style.card}>
