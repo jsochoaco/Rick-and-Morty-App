@@ -1,0 +1,17 @@
+
+.contenedor {
+}
+
+.h2 {
+    /* background: linear-gradient(to right, #0a0d20, #ab79b5,#0a0d20); */
+    margin: 0%;
+    text-align: center;
+    color: white;
+    text-shadow: 4px 4px 2px #0a0d20 ;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    
+}
+
