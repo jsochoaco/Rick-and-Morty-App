@@ -1,6 +1,7 @@
 import { useState } from "react"
 import imagen from "../../Imagenes/inicioimg.png"
 import style from "./form.module.css"
+import imagen2 from "../../Imagenes/logotipo.png"
 
 
 
@@ -43,6 +44,7 @@ const Form = (props) => {
         <>
         <form onSubmit={handleSubmit} className={style.formelement} >
             <div className={style.contenedor}>
+                <img className={style.logoinicio}src={imagen2} alt="titulo" />
                 <img className={style.logoinicio} src={imagen} alt="inicio" />
                 <div className={style.datos}>
                     <h1 className={style.titulo}>Welcome to the Rick and Morty App</h1>

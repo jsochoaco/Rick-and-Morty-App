@@ -1,6 +1,5 @@
 .barrasuperior {
-    display: inline;
-    grid-row: auto;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: auto; /* Cambiar el ancho */
@@ -9,7 +8,7 @@
     /* background: linear-gradient(to right, #6e5264, #13132d);; Cambiar el color de fondo */
     color: #fff; /* Cambiar el color del texto */
     font-size: 16px; /* Cambiar el tamaño de fuente */
-    padding: 5px;/* Cambiar el relleno interno */
+    padding: 1%;
     /* margin: 5px; Cambiar los márgenes */
     border-radius: 5px; /* Cambiar el radio de borde */
  }

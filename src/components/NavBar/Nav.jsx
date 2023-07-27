@@ -21,9 +21,13 @@ export default function NavBar (props) {
                 <NavLink to="/favorites">
                     <button className={style.botonuevo}>Favorites</button>
                 </NavLink>
-                <button className={style.botonuevo2} onClick={()=>props.onSearch(random)}>Random character</button>
+                <NavLink to="/">
+                    <button className={style.botonut}>Log out</button>
+                </NavLink>
+            </div>
+            <div className={style.contenedor2}>
                 <SearchBar className={style.barrasuperior} onSearch={props.onSearch} />
-                
+                <button className={style.botonuevo2} onClick={()=>props.onSearch(random)}>Random character</button>
             </div>
         </div>
     )

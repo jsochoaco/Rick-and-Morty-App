@@ -8,6 +8,7 @@ export default function SearchBar(props) {
     };
    return (
       <div className={styles.barrasuperior}>
+         <h3>Add Character </h3>
          <input placeholder="Enter ID" type='search' value={id} onChange={handleChange}/>
          <button  onClick={()=>props.onSearch(id)}>Add</button>
       </div>

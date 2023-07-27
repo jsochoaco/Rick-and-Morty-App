@@ -4,7 +4,7 @@ import Cards from './components/Cards/Cards';
 import Nav from "./components/NavBar/Nav"
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Routes, Route, useNavigate} from "react-router-dom"
+import {Routes, Route, useNavigate,useLocation} from "react-router-dom"
 import AboutMe from "./components/AboutMe/AboutMe"
 import AboutApp from "./components/AboutApp/AboutApp"
 import CardDetails from "./components/Details/CardDetails"
@@ -15,6 +15,7 @@ import { connect } from 'react-redux';
 import { deleteFavorites } from './redux/actions';
 
 function App(props) {
+   const { pathname } = useLocation()
    // Función buscar info de carta por ID
    const [characters,setCharacters] = useState([]);
    function onSearch(id) {
@@ -58,12 +59,13 @@ function App(props) {
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
-   
    //Renderizado
    return (
       <div>
          <nav>
+            { pathname != "/" && 
             <Nav onSearch={onSearch}/>
+            }
          </nav>
          <Routes>
             <Route
