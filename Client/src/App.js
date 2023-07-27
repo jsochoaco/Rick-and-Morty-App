@@ -19,7 +19,7 @@ function App(props) {
    // Función buscar info de carta por ID
    const [characters,setCharacters] = useState([]);
    function onSearch(id) {
-      axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+      axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
          if (data.name) {
             if (!characters.some((objeto) => objeto.id === parseInt(`${id}`))) {
