@@ -12,7 +12,7 @@ import Error from './components/Error/Error';
 import Form from './components/Form/Form';
 import Favorites from "./components/Favorites/Favorites"
 import { connect } from 'react-redux';
-import { deleteFavorites } from './redux/actions';
+import { deleteFavorites, addFavorites } from './redux/actions';
 
 function App(props) {
    const { pathname } = useLocation()
@@ -20,9 +20,10 @@ function App(props) {
    const [characters,setCharacters] = useState([]);
    function onSearch(id) {
       axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
+      .then((response) => response.data)
+      .then((data) => {
          if (data.name) {
-            if (!characters.some((objeto) => objeto.id === parseInt(`${id}`))) {
+            if (!characters.some((objeto) => objeto.id === (`${id}`))) {
                setCharacters((oldChars) => [...oldChars, data]);
             }
             else {
@@ -40,25 +41,25 @@ function App(props) {
    // Función cierre de carta
 
    function onClose(id) {
-      var idnum = parseInt(id)
-      const update = characters.filter((object => object.id !== idnum))
+      // var idnum = parseInt(id)
+      const update = characters.filter((object => object.id !== id))
       setCharacters(update)
-      props.deleteFavorite(idnum)
-
+      props.deleteFavorite(id)
    }
    //Login 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-   const EMAIL = 'sebastianochoa05@gmail.com';
-   const PASSWORD = 'JSverde5';
-   function login(data) {
-   if (data.password === PASSWORD && data.email === EMAIL) {
-      setAccess(true);
-      navigate('/home');
-   }}
-   useEffect(() => {
-      !access && navigate('/');
-   }, [access]);
+   // const EMAIL = 'sebastianochoa05@gmail.com';
+   // const PASSWORD = 'JSverde5';
+   function login(userData) {
+   const { email, password } = userData;
+   const URL = 'http://localhost:3001/rickandmorty/login/';
+   axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate('/home');
+   });
+}
    //Renderizado
    return (
       <div>
