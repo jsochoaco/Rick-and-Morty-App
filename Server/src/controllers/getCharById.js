@@ -3,41 +3,50 @@ const axios = require("axios");
 
 const URL = "https://rickandmortyapi.com/api/character";
 
-const getCharById = (req, res)=>{
-    const { id } = req.params;
-
-        axios(`${URL}/${id}`)
-        .then((response) => response.data )
-        .then(({ name, status, origin, image, species, gender})=>{
-
-            if(name){
-                const character={
-                    id,
-                    name,
-                    species,
-                    origin,
-                    image,
-                    gender,
-                    status
-                }
-                    return res.status(200).json(character)//.json se usa para obj de javascript
+const getCharById = async (req, res)=>{
+    try {
+        const { id } = req.params;
+        const { name, status, origin, image, species, gender} = (await axios(`${URL}/${id}`)).data
+        if (name) {
+            const character={
+                id,
+                name,
+                species,
+                origin,
+                image,
+                gender,
+                status
             }
-            // no es necesario colocar un else ya que el return corta el resultado
-            return res.status(404).send("Not found");
-        })
-        .catch((error)=>res.status(500).send(error.message))
+            return res.status(200).json(character)
+        }
+        return res.status(404).send("Not found");
+    } 
+    catch (error) {
+        return res.status(500).send(error.message)   
     }
+}
+module.exports = {
+    getCharById
+}
 
+        // .then((response) => response.data )
+        // .then(()=>{
 
-    module.exports = {
-        getCharById
-    }
-
-
-
-
-
-
+        //     if(name){
+        //         const character={
+        //             id,
+        //             name,
+        //             species,
+        //             origin,
+        //             image,
+        //             gender,
+        //             status
+        //         }
+        //             return res.status(200).json(character)//.json se usa para obj de javascript
+        //     }
+        //     // no es necesario colocar un else ya que el return corta el resultado
+        //     return res.status(404).send("Not found");
+        // })
 
 // const axios = require('axios')
 
