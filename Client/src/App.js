@@ -27,15 +27,15 @@ function App(props) {
                setCharacters((oldChars) => [...oldChars, data]);
             }
             else {
-               window.alert('¡Este personaje ya está en pantalla');
+               window.alert('This character is already on screen!');
             }
          } 
          else {
-            window.alert('¡No hay personajes con este ID!');
+            window.alert('There are no characters with this ID!');
          }
       } 
       catch (error) {
-         window.alert('Este ID no existe. Revise su valor. Rango de ID: (1-826)')
+         window.alert('This ID does not exist. Check your value. ID Range: (1-826)')
       }
       // axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
       // .then((response) => response.data)
@@ -78,6 +78,9 @@ function App(props) {
          const { access } = data;
          setAccess(data);
          access && navigate('/home');
+         if (access === false) {
+            window.alert('Wrong password and email');
+         }
       } catch (error) {
          return {error: error.message}
       }

@@ -1,17 +1,17 @@
 .contenedor {
     display: flex;
     flex-direction: row;
-    gap: 18%;
     justify-content: center;
     align-content: center;
     align-items: center;
+    gap: 5%;
     margin: 100px;
 }
 
 .conimg {
     .imagen {
-        border-radius: 50%;
-        width: 60%;
+        width: 50%;
+        margin-left: 50px;
         /* box-shadow: 0 0 10px 5px #9fff02; */
     }
 }
@@ -21,10 +21,7 @@
     font-size: 20px;
     width: auto;
     border-radius: 5%;
-
     box-shadow: 0 0 10px 5px #9fff02;
-
-
     .nombre {
         color: #9fff02;
         margin:10px;

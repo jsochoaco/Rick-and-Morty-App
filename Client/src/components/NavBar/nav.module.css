@@ -85,3 +85,15 @@
     border-radius: 5%;
     text-align: center;
 }
+
+
+.botonut:hover {
+    cursor: pointer;
+  }
+
+.botonuevo:hover {
+    cursor: pointer;
+}
+.botonuevo2:hover {
+    cursor: pointer;
+}

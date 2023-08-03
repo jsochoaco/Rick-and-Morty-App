@@ -9,7 +9,7 @@ const AboutMe = () => {
                 <p className={style.info}>With this application you can access the
                  826 characters of the Rick and Morty series and know their main information. 
                  This application was created for educational purposes of SoyHenry's Full Stack Developer
-                  program. </p>
+                program. The entire Back-end and Front-end of the app was developed. </p>
                 <p className={style.info}> The information was obtained from the API: <a className={style.link}href="https://rickandmortyapi.com">https://rickandmortyapi.com</a>
                 </p>
             </div>

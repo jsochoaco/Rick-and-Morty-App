@@ -8,7 +8,9 @@ export default function NavBar (props) {
     return (
         <div className={style.navbarra}>
             <div className={style.contenedor}>
-                <img className={style.imagen} src= {logo} alt="logotipo" />
+                <NavLink to="/home">
+                    <img className={style.imagen} src= {logo} alt="logotipo" />
+                </NavLink>
                 <NavLink to="/home">
                     <button className={style.botonuevo}>Home</button>
                 </NavLink>

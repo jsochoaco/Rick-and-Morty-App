@@ -21,12 +21,16 @@ const Favorites = (props) => {
         <>
         <div className={style.contenedor}>
             <h2 className={style.h2}>My Favorites</h2>
-            <div>
-                <select onChange={handleOrder}>
+            <div className={style.contenedor2}>
+                <h2 className={style.label}> Sort
+                </h2>
+                <select onChange={handleOrder} className={style.select} >
                     <option value="W">Unsorted</option>
                     <option value="A">Ascending</option>
                     <option value="D">Descending</option>
                 </select>
+                <h2 className={style.label}> Filter by Gender
+                </h2>
                 <select onChange={handleFilter} className={style.select}>
                     <option value="All">All</option>                
                     <option value="Male">Male</option>
