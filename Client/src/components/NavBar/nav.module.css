@@ -1,11 +1,11 @@
-.navbarra {
+/* .navbarra {
     /* display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex-wrap: nowrap; */
-}
+
 
 .contenedor {
     background: linear-gradient(to right, #0a0d20, #ab79b5,#0a0d20);
