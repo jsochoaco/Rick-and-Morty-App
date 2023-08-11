@@ -27,14 +27,13 @@ function Card({ id, name, species, gender, image, onClose, deleteFavorite, addFa
             setIsFav(true);
          }
       });
-   }, [myFavorites,id]);
+   }, [myFavorites]);
 
    
    return (
       <div className={style.card}>
          {
-         isFav ?(<button onClick={handleFavorite} className={style.corazon}>❤️</button>)
-         : (<button onClick={handleFavorite} className={style.corazon}>🤍</button>)
+         isFav?(<button onClick={handleFavorite} className={style.corazon}>❤️</button>):(<button onClick={handleFavorite} className={style.corazon}>🤍</button>)
          }
                   {
             !pathname.includes('/favorites') &&

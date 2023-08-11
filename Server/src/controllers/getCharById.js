@@ -25,9 +25,8 @@ const getCharById = async (req, res)=>{
         return res.status(500).send(error.message)   
     }
 }
-module.exports = {
-    getCharById
-}
+module.exports = getCharById
+
 
         // .then((response) => response.data )
         // .then(()=>{
