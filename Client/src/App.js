@@ -13,6 +13,7 @@ import Form from './components/Form/Form';
 import Favorites from "./components/Favorites/Favorites"
 import { connect } from 'react-redux';
 import { deleteFavorites, addFavorites } from './redux/actions';
+import CreateUser from './components/Form/CreateUser';
 
 function App(props) {
    const { pathname } = useLocation()
@@ -37,27 +38,8 @@ function App(props) {
       catch (error) {
          window.alert('This ID does not exist. Check your value. ID Range: (1-826)')
       }
-      // axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
-      // .then((response) => response.data)
-      // .then((data) => {
-      //    if (data.name) {
-      //       if (!characters.some((objeto) => objeto.id === (`${id}`))) {
-      //          setCharacters((oldChars) => [...oldChars, data]);
-      //       }
-      //       else {
-      //          window.alert('¡Este personaje ya está en pantalla');
-      //       }
-      //    } 
-      //    else {
-      //       window.alert('¡No hay personajes con este ID!');
-      //    }
-      // })
-      // .catch(() => {
-      //     window.alert('Este ID no existe. Revise su valor. Rango de ID: (1-826)');
-      // });
    };
    // Función cierre de carta
-
    function onClose(id) {
       // var idnum = parseInt(id)
       const update = characters.filter((object => object.id !== id))
@@ -83,27 +65,22 @@ function App(props) {
          }
       } catch (error) {
          return {error: error.message}
-      }
-   // const { email, password } = userData;
-   // const URL = 'http://localhost:3001/rickandmorty/login/';
-   // axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-   //    const { access } = data;
-   //    setAccess(data);
-   //    access && navigate('/home');
-   // });
-}
+      }}
    //Renderizado
    return (
       <div>
          <nav>
-            { pathname != "/" && 
+            { pathname != "/" && pathname != "/createUser" && 
             <Nav onSearch={onSearch}/>
             }
          </nav>
          <Routes>
             <Route
             path='/'
-            element={<Form onLogin={login} />} />
+            element={<Form login={login} />} />
+            <Route
+            path='/createUser'
+            element={<CreateUser creado = {props.creado} />} />
             <Route
             path='/Home'
             element={<Cards onClose={onClose} characters={characters} />} />
@@ -130,7 +107,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
    return {
-      myFavorites: state.myFavorites
+      myFavorites: state.myFavorites,
+      creado: state.creado
    }
 }
 
@@ -147,3 +125,29 @@ export default connect(mapStateToProps, mapDispatchToProps)(App)
 // import Card from './components/Card.jsx';
 // import {Rick} from './data.js';
 // import SearchBar from './components/SearchBar';
+
+   // const { email, password } = userData;
+   // const URL = 'http://localhost:3001/rickandmorty/login/';
+   // axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+   //    const { access } = data;
+   //    setAccess(data);
+   //    access && navigate('/home');
+   // });
+      // axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+      // .then((response) => response.data)
+      // .then((data) => {
+      //    if (data.name) {
+      //       if (!characters.some((objeto) => objeto.id === (`${id}`))) {
+      //          setCharacters((oldChars) => [...oldChars, data]);
+      //       }
+      //       else {
+      //          window.alert('¡Este personaje ya está en pantalla');
+      //       }
+      //    } 
+      //    else {
+      //       window.alert('¡No hay personajes con este ID!');
+      //    }
+      // })
+      // .catch(() => {
+      //     window.alert('Este ID no existe. Revise su valor. Rango de ID: (1-826)');
+      // });

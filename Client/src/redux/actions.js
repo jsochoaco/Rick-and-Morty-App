@@ -1,4 +1,4 @@
-import { ADD_FAVORITES, DELETE_FAVORITES, ORDER, FILTER} from "./action-types" 
+import { ADD_FAVORITES, DELETE_FAVORITES, ORDER, FILTER, CREADO} from "./action-types" 
 import axios from "axios"
 
 export const addFavorites = (character) => {
@@ -66,4 +66,20 @@ export const filter= (gender) => {
 }
 
 
- 
+export const createUser = (datos) => {
+   try {
+       const endpoint = 'http://localhost:3001/rickandmorty/login/'
+       return async (dispatch)=> {
+           const response = await axios.post(endpoint, datos)
+           const mensaje = response.data.existe
+           dispatch({
+            type: CREADO,
+            payload: mensaje
+        })    
+       }
+   } 
+   catch (error) {
+       return {error: error.message}
+       // Status 500: Indica un error interno en el servidor 
+   }
+}
